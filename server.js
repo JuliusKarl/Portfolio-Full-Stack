@@ -16,11 +16,6 @@ app.use(function(req, res, next) {//
 const sendEmailRouter = require('./routes/sendEmail');
 app.use('/sendEmail', sendEmailRouter);
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`)
-});
-
 app.use(express.static(path.join(__dirname, 'client/build')))
 
 if (process.env.NOD_ENV === 'production') {
@@ -29,3 +24,8 @@ if (process.env.NOD_ENV === 'production') {
         res.sendFile(path.join(__dirname + '../client/build/index.html'));
     });
 }
+
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
+});
