@@ -17,9 +17,9 @@ app.get('/', (req, res) => {
     res.send('Hello');
 });
 */
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 const sendEmailRouter = require('./routes/sendEmail');
 app.use('/sendEmail', sendEmailRouter);
